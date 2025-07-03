@@ -235,5 +235,4 @@ class APIClient {
 
 const apiClient = new APIClient();
 
-module.exports = apiClient; 
-module.exports = apiClient; 
+module.exports = apiClient;
