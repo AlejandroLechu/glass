@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  voi-server:
+    image: alievk/voi-server:latest
+    ports:
+      - "8080:8080"
+
+  ova:
+    image: ghcr.io/dvonthenen/open-virtual-assistant:latest
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "5001:5001"
+
+  api_gateway:
+    build:
+      context: .
+      dockerfile: api_gateway/Dockerfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "9000:8000"
+    depends_on:
+      - voi-server
+      - ova 
