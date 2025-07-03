@@ -6,7 +6,7 @@ services:
       - "8080:8080"
 
   ova:
-    image: ghcr.io/dvonthenen/open-virtual-assistant:latest
+    image: dvonthenen/open-virtual-assistant:latest
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     ports:
